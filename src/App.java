@@ -2,22 +2,28 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import classes.Conta;
+import classes.ContaCorrente;
+import classes.ContaSalario;
 
 public class App {
     public static void main(String[] args) throws Exception {
         ArrayList<Conta> contas = new ArrayList<Conta>();
-
-        contas.add(new Conta(1, 123, 
-                1234, 0, 
-                "Guilherme Zatta", 
-                "123.456.789-00", 1, 
+        contas.add(new ContaCorrente(1, 123,
+                1234, 0,
+                "Guilherme Zatta",
+                "123.456.789-00",
                 "1234567891234567", "123"));
+        contas.add(new ContaSalario(2, 123,
+                1234, 0,
+                "Guilherme Zatta",
+                "123.456.789-00",
+                "1234567891234563", "123"));
 
-        Scanner scanner = new Scanner (System.in);
+        Scanner scanner = new Scanner(System.in);
         // ENTRADA
         // 1 - Ir até um caixa eletrônico
         // 2 - Inserir o cartão
-        // 2.1 - Ler os dados do catão
+        // 2.1 - Ler os dados do cartão
         System.out.println("Insira o numero do cartão: ");
         String numeroCartao = scanner.nextLine();
 
@@ -31,6 +37,7 @@ public class App {
         }
 
         if (contaSaque == null) {
+            scanner.close();
             throw new Error("Conta não encontrada");
         }
 
@@ -38,12 +45,13 @@ public class App {
         System.out.println("Insira a senha: ");
         String senha = scanner.nextLine();
 
+        scanner.close();
+
         // 4 - Validar a senha (processamento intermediario)
         // se a senha estiver incorreta, vai mostrar um erro e terminar o programa
         if (!contaSaque.getSenha().equals(senha)) {
             throw new Error("Senha inválida");
         }
-
         // 5 - Informar o valor do saque
 
         // PROCESSAMENTO
@@ -55,6 +63,5 @@ public class App {
         // SAÍDA
         // 10 - Encerrar a operação
         // 10.1 - Mostrar o comprovante da transação em tela
-        scanner.close();
     }
 }
