@@ -9,10 +9,11 @@ public class ContaCorrente extends Conta {
     super(idConta, numero, agencia,
         digitoVerificador, nome, cpf,
         numeroCartao, senha);
+    this.setTipoConta();
   }
 
   @Override
   public void setTipoConta() {
-    this.tipoConta = 1;
+    super.setTipoConta(1);
   }
 }

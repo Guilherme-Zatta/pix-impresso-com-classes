@@ -1,7 +1,7 @@
 package classes;
 
 // classe abstrata
-public abstract class Conta {
+public abstract class Conta implements IConta{
   protected int idConta;
   protected int numero;
   protected int agencia;
@@ -24,9 +24,6 @@ public abstract class Conta {
     this.cpf = cpf;
     this.numeroCartao = numeroCartao;
     this.senha = senha;
-  }
-
-  public void setTipoConta() {
   }
 
   public int getTipoConta() {

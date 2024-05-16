@@ -1,8 +1,10 @@
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
 import classes.Conta;
 import classes.ContaCorrente;
+import classes.ContaPoupanca;
 import classes.ContaSalario;
 
 public class App {
@@ -13,11 +15,21 @@ public class App {
                 "Guilherme Zatta",
                 "123.456.789-00",
                 "1234567891234567", "123"));
+      
         contas.add(new ContaSalario(2, 123,
                 1234, 0,
                 "Guilherme Zatta",
                 "123.456.789-00",
                 "1234567891234563", "123"));
+
+        contas.add(new ContaPoupanca(3, 123,
+                1234, 0,
+                "Guilherme Zatta",
+                "123.456.789-00",
+                "1234567891234562", "123"));
+
+        // TODO - Criar uma lista de caixas eletronicos
+        // TODO - Criar objetos do tipo caixa eletronico
 
         Scanner scanner = new Scanner(System.in);
         // ENTRADA
@@ -53,6 +65,9 @@ public class App {
             throw new Error("Senha inválida");
         }
         // 5 - Informar o valor do saque
+        // TODO - 5.1 - Informar o id do Caixa Eletronico
+
+        // TODO - 5.2 - Buscar o caixa eletronico na lista
 
         // PROCESSAMENTO
         // 6 - Validar se o caixa possui saldo
