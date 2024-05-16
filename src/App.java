@@ -2,6 +2,7 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import classes.CaixaEletronico;
 import classes.Conta;
 import classes.ContaCorrente;
 import classes.ContaPoupanca;
@@ -31,6 +32,16 @@ public class App {
         // TODO - Criar uma lista de caixas eletronicos
         // TODO - Criar objetos do tipo caixa eletronico
 
+        ArrayList<CaixaEletronico> caixas = new ArrayList<CaixaEletronico>();
+        caixas.add(new CaixaEletronico(1, "PB - Centro", 5000));
+
+        caixas.add(new CaixaEletronico(2, "PB - Zona Norte", 1000));
+
+        caixas.add(new CaixaEletronico(3, "FB - Centro", 2000));
+
+        caixas.add(new CaixaEletronico(4, "VT - Centro", 800));
+
+
         Scanner scanner = new Scanner(System.in);
         // ENTRADA
         // 1 - Ir até um caixa eletrônico
@@ -57,8 +68,7 @@ public class App {
         System.out.println("Insira a senha: ");
         String senha = scanner.nextLine();
 
-        scanner.close();
-
+        
         // 4 - Validar a senha (processamento intermediario)
         // se a senha estiver incorreta, vai mostrar um erro e terminar o programa
         if (!contaSaque.getSenha().equals(senha)) {
@@ -66,9 +76,33 @@ public class App {
         }
         // 5 - Informar o valor do saque
         // TODO - 5.1 - Informar o id do Caixa Eletronico
-
+        
+        System.out.println("Insira o valor do saque: ");
+        String saque = scanner.nextLine();
+        
+        System.out.println("Insira o ID do Caixa Eletronico: ");
+        String idCaixa = scanner.nextLine();
+        
         // TODO - 5.2 - Buscar o caixa eletronico na lista
 
+        CaixaEletronico caixaId = null;
+        for (CaixaEletronico CaixaEletronico : caixas) {
+            // se o número do cartão for igual ao número do cartão de uma conta
+            if (CaixaEletronico.IdCaixaEletronico == idCaixa) {
+                contaSaque = caixaId;
+                break;
+            }
+        }
+
+        if (contaSaque == null) {
+            scanner.close();
+            throw new Error("Conta não encontrada");
+        }
+
+        }
+        
+        scanner.close();
+   
         // PROCESSAMENTO
         // 6 - Validar se o caixa possui saldo
         // 7 - Validar se a conta possui saldo
