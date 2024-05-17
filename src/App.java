@@ -115,8 +115,11 @@ public class App {
         System.out.println();
 
         // 9 - Registrar a transação
-        transacoes.add(new Transacao(
-            idCaixa, idCaixa, idCaixa, idCaixa, 0))
+        transacoes.add(new Transacao(1,
+        contaSaque.getIdConta(),
+        saque.getIdCaixaEletronico(),
+        valorSaque,
+        'D'));
 
         // SAÍDA
         // 10 - Encerrar a operação
