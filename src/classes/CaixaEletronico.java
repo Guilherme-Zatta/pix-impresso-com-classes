@@ -35,5 +35,4 @@ public class CaixaEletronico {
         this.saldo = saldo;
     }
     
-    
 }

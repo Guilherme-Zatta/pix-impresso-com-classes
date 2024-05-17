@@ -43,7 +43,7 @@ public class App {
         "VT - Centro", 800));
 
         //Lista de transacoes
-        ArrayList<transacoes
+        ArrayList<Transacao> transacoes = new ArrayList<Transacao>();
 
         Scanner scanner = new Scanner(System.in);
         // ENTRADA
@@ -112,18 +112,24 @@ public class App {
         }
 
         // 8 - Liberar o dinheiro para o cliente
-        System.out.println();
+        System.out.println("Por favor aguarde... \n O dinheiro estará disponível em instantes");
 
         // 9 - Registrar a transação
-        transacoes.add(new Transacao(1,
-        contaSaque.getIdConta(),
-        saque.getIdCaixaEletronico(),
-        valorSaque,
-        'D'));
+        Transacao transacao = new Transacao(1,
+                contaSaque.getIdConta(),
+                caixaId.getIdCaixaEletronico(),
+                saque,
+                'D');
+        transacoes.add(transacao);
 
         // SAÍDA
-        // 10 - Encerrar a operação
-        // 10.1 - Mostrar o comprovante da transação em tela
-    }
 
+        // 10 - Encerrar a operação
+        System.out.println("Operação concluída! \n Obrigado por utilizar o sistema Pix Impresso");
+        // 10.1 - Mostrar o comprovante da transação em tela
+        System.out.println("Comprovante: ");
+        System.out.println("Data: " + transacao.getDataHora().toString());
+        System.out.println("Valor: " + transacao.getValor());
+        System.out.println("Tipo: " + transacao.getTipoTransacao());
+    }
 }
